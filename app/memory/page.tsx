@@ -56,7 +56,7 @@ export default function MemoryPage() {
       >
         <div className="container py-8">
           <h1 className="text-4xl font-display mb-6 text-black">
-            Memories with Zoey
+            Memories with Maya
           </h1>
 
           <div className="flex flex-col lg:flex-row gap-8">

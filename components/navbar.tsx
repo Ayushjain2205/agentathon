@@ -30,7 +30,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { useState, useEffect } from "react";
-import { baseSepolia } from "thirdweb/chains";
+import { avalancheFuji } from "thirdweb/chains";
 import { getContract, prepareContractCall } from "thirdweb";
 import { formatUnits, parseUnits } from "ethers";
 import { useToast } from "@/hooks/use-toast";
@@ -48,7 +48,7 @@ const navItems = [
 const wallets = [
   inAppWallet({
     smartAccount: {
-      chain: baseSepolia,
+      chain: avalancheFuji,
       sponsorGas: true,
     },
   }),
@@ -64,8 +64,8 @@ const modeIcons = {
 
 const TOKEN_CONTRACT = getContract({
   client,
-  address: "0xe8D395EdCed58CdcA9f404db7BeD793c291F493f",
-  chain: baseSepolia,
+  address: "0x56467937CF1AC84e0bcfbe5E4Ae012877b1aC5D2",
+  chain: avalancheFuji,
 });
 
 // Separate client component for wallet functionality
@@ -231,7 +231,7 @@ export function Nav() {
             <span
               className={`text-4xl font-bold ${rubikDoodleShadow.className} text-black`}
             >
-              Zoey
+              MAYA
             </span>
             <img
               className="w-8 h-8"

@@ -13,13 +13,13 @@ import { getContract, prepareContractCall } from "thirdweb";
 import { formatUnits, parseUnits } from "ethers";
 import { useToast } from "@/hooks/use-toast";
 import { client } from "@/lib/thirdweb";
-import { baseSepolia } from "thirdweb/chains";
+import { avalancheFuji } from "thirdweb/chains";
 import { Loader2 } from "lucide-react";
 
 const TOKEN_CONTRACT = getContract({
   client,
-  address: "0xe8D395EdCed58CdcA9f404db7BeD793c291F493f",
-  chain: baseSepolia,
+  address: "0x56467937CF1AC84e0bcfbe5E4Ae012877b1aC5D2",
+  chain: avalancheFuji,
 });
 
 interface ShopCardProps {

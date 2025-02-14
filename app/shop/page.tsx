@@ -21,7 +21,7 @@ export default function ShopPage() {
         style={{ backgroundColor: activeLighterColor }}
       >
         <div className="container py-8">
-          <h1 className="text-4xl mb-4 text-black font-sans">Zoey's Shop</h1>
+          <h1 className="text-4xl mb-4 text-black font-sans">Maya's Shop</h1>
           <div className="mb-4 flex space-x-4">
             <button
               onClick={() => setActiveTab("gifts")}

@@ -21,7 +21,7 @@ const gifts = [
   },
   {
     name: "Hat of Empathy",
-    description: "Interacts with Zoey, provides encouragement",
+    description: "Interacts with Maya, provides encouragement",
     price: 400,
     image: "/gifts/hat.png",
   },
