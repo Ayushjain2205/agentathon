@@ -238,7 +238,7 @@ export async function POST(req: Request) {
     // Handle different actions
     switch (action) {
       case "start":
-        await zoey.run();
+        await zoey.run(1);
         return new Response(
           JSON.stringify({
             message: "Zoey initialized and running",
@@ -255,25 +255,45 @@ export async function POST(req: Request) {
       case "chat":
         const worker = getWorker(mode);
         let response;
+        const logMessage = (msg: string) => console.log(msg);
 
         switch (mode) {
           case "bff":
-            response = await worker.execute("casual_chat", {
-              message: params.message,
-            });
+            response = await worker.functions
+              .find((f) => f.name === "casual_chat")
+              ?.executable(
+                {
+                  message: params.message,
+                },
+                logMessage
+              );
             break;
           case "shopper":
-            response = await worker.execute("recommend_products", {
-              preferences: params.preferences,
-            });
+            response = await worker.functions
+              .find((f) => f.name === "recommend_products")
+              ?.executable(
+                {
+                  preferences: params.preferences,
+                },
+                logMessage
+              );
             break;
           case "coach":
-            response = await worker.execute("provide_motivation", {
-              context: params.context,
-            });
+            response = await worker.functions
+              .find((f) => f.name === "provide_motivation")
+              ?.executable(
+                {
+                  context: params.context,
+                },
+                logMessage
+              );
             break;
           default:
             throw new Error("Invalid mode");
+        }
+
+        if (!response) {
+          throw new Error("Function not found for the specified mode");
         }
 
         return new Response(JSON.stringify({ message: response.feedback }), {
